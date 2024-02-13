@@ -13,10 +13,16 @@ def update
   redirect_to user_path(@user)
 end
 
+def index
+  @user = User.new
+    @users = User.all
+    @book = current_user
+end
+
 private
 
   def user_params
-    params.require(:user).permit(:name, :profile_image)
+    params.require(:user).permit(:name, :profile_image, :introduction)
   end
 
 end
