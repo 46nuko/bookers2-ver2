@@ -11,8 +11,12 @@
 <% end %>
 <h1>Book detail</h1>
 <div>
-  <%= image_tag @book.get_image %>
-  <p>a：<%= @book.title %></p>
+  <%= link_to user_path(@user) do %>
+    <%= image_tag @book.get_image %>
+  <% end %>
+  <%= link_to book_path(@book) do %>
+    <p>Title：<%= @book.title %></p>
+  <% end %>
   <p>b：<%= @book.body %></p>
   <p>c：<%= @book.user.name %></p>
   </div>

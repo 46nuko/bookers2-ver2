@@ -15,8 +15,8 @@ end
 
 def index
   @user = User.new
-    @users = User.all
-    @book = current_user
+  @users = User.all
+  @book = current_user
 end
 
 private
