@@ -10,3 +10,11 @@
   <%= f.submit 'Create Book' %>
 <% end %>
 <h2>Users</h2>
+<% @users.each do |user| %>
+  <h3><%= user.name %></h3>
+    <% user.books.each do |post| %>
+      <p><strong>Title:</strong> <%= post.title %></p>
+      <p><strong>Opinion:</strong> <%= post.body %></p>
+      <%= link_to 'Show', user_path(@book) %>
+    <% end %>
+<% end %>
