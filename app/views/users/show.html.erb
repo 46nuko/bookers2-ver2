@@ -24,4 +24,8 @@
   <% end %>
     <p>Opinion：<%= book.body %></p>
   </div>
+  <% if @book == current_user %>
+    <%= link_to "Edit", edit_book_path(@book.id) %>
+    <%= link_to "Destroy", book_path(@book), method: :delete %>
+  <% end %>
 <% end %>
