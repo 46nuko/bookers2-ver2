@@ -2,9 +2,9 @@
 <tbody>
   <tr>
     <% if @user.profile_image.attached? %>
-      <%= image_tag url_for(@user.profile_image) %>
+      <%= image_tag url_for(@user.profile_image),size:100 %>
     <% else %>
-      <%= image_tag 'no_image.jpg' %>
+      <%= image_tag 'no_image.jpg',size:"100x100" %>
     <% end %>
 </tr>
   <tr>
