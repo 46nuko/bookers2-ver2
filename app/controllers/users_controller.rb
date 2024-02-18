@@ -6,13 +6,13 @@ class UsersController < ApplicationController
     @book = current_user
   end
   def create
-    @user = user.new
-    @book.user_id = current_user.id
-    if @book.save
+  @user = User.new(user_params)
+  @book = @user.books.build(book_params)
+    if @user.save && @book.save
       flash[:notice] = "You have created book successfully."
-      redirect_to book_path(@book)
+      redirect_to books_path(@book)
     else
-      render :show
+      redirect_to user_path(@user)
     end
   end
   def edit
