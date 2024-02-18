@@ -60,7 +60,15 @@
           </div>
         </div>
       </nav>
+      <% flash.each do |message_type, message| %>
+        <%= content_tag :div, message, class: message_type %>
+      <% end %>
     </header>
+    <main>
+      <div>
+        <%= flash[:notice] %>
+      </div>
+    </main>
     <%= yield %>
   <footer>
     <p>CopyRight Infratop.inc</p>

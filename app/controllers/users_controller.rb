@@ -5,6 +5,16 @@ class UsersController < ApplicationController
     @books = @user.books
     @book = current_user
   end
+  def create
+    @user = user.new
+    @book.user_id = current_user.id
+    if @book.save
+      flash[:notice] = "You have created book successfully."
+      redirect_to book_path(@book)
+    else
+      render :show
+    end
+  end
   def edit
     @user = User.find(params[:id])
   end
