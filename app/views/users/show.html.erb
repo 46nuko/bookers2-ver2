@@ -5,13 +5,7 @@
     <p><%= link_to "Edit", edit_user_path(@user) %></p>
   <% end %>
 <h2>New book</h2>
-<%= form_with model: @book, url: book_path do |form| %>
-  <h4>Title</h4>
-  <%= form.text_field :title %>
-  <h4>Opinion</h4>
-  <%= form.text_area :body %>
-    <%= form.submit "Create Book", name:"book" %>
-<% end %>
+  <%= render partial: 'books/form', locals: { book: @book } %>
 <h2>Books</h2>
 
 <% @books.each do |book| %>

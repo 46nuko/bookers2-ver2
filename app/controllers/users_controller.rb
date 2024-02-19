@@ -3,18 +3,9 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @books = @user.books
-    @book = current_user
+    @book = Book.new
   end
-  def create
-  @user = User.new(user_params)
-  @book = @user.books.build(book_params)
-    if @user.save && @book.save
-      flash[:notice] = "You have created book successfully."
-      redirect_to books_path(@book)
-    else
-      redirect_to user_path(@user)
-    end
-  end
+
   def edit
     @user = User.find(params[:id])
   end
