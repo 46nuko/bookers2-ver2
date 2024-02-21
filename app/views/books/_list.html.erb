@@ -1,23 +1,27 @@
-<h1>User info</h1>
-<tbody>
-  <tr>
-    <% if @user.profile_image.attached? %>
-      <%= image_tag url_for(@user.profile_image),size:100 %>
-    <% else %>
-      <%= image_tag 'no_image.jpg',size:"100x100" %>
-    <% end %>
-　</tr>
-  <tr>
-    <th>name</th>
-    <th><%= @user.name %></th>
-  </tr>
-  <tr>
-    <th>introduction</th>
-    <th><%= @user.introduction %></th>
-  </th>
+<h2>User info</h2>
+<table class="table">
+  <tbody>
+    <tr>
+      <% if @user.profile_image.attached? %>
+        <%= image_tag url_for(@user.profile_image),size:100 %>
+      <% else %>
+        <%= image_tag 'no_image.jpg',size:"100x100" %>
+      <% end %>
+　  </tr>
+    <tr>
+      <th>name</th>
+      <th><%= @user.name %></th>
+    </tr>
+    <tr>
+      <th>introduction</th>
+      <th><%= @user.introduction %></th>
+    </tr>
   </tbody>
-  <div class= "row">
+</table>
+<div class="row">
     <% if @user == current_user %>
-      <p><%= link_to "Edit", edit_user_path(@user) %></p>
+ 　    <%= link_to edit_user_path(@user), class: "btn btn-outline-secondary btn-block" do %>
+        <i class="fas fa-user-gear"></i>
+      <% end %>
     <% end %>
-  </div>
+</div>
